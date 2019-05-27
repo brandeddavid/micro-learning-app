@@ -17,8 +17,8 @@ get '/api/v1/users' do
 end
 
 post '/api/v1/auth/signup' do
-  user = User.new(params)
-  puts user.to_json
+  payload = JSON.parse(request.body.read)
+  user = User.new(payload)
 
   if user.save
     user.to_json
