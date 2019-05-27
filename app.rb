@@ -9,11 +9,11 @@ before do
 end
 
 get '/' do
-  'Hello world!'
+  { 'status': 'success', 'message': 'Welcome to Micro Learning Application!' }.to_json
 end
 
 get '/api/v1/users' do
-  User.all.to_json
+  { 'status': 'success', 'message': 'Users fetched successfully', 'data': User.all }.to_json
 end
 
 post '/api/v1/auth/signup' do
@@ -26,9 +26,9 @@ post '/api/v1/auth/signup' do
     user = User.new(payload)
 
     if user.save
-      user.to_json
+      { 'status': 'success', 'message': 'User registered successfully', 'data': user }.to_json
     else
-      halt 400, user.errors.full_messages.to_json
+      halt 400, { 'status': 'error', 'error': user.errors }.to_json
     end
   end
 end
