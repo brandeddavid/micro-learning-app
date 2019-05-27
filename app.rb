@@ -2,7 +2,13 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'json'
+require 'dotenv'
 require './models/user'
+require './helpers/auth'
+
+Dotenv.load
+
+secret_key = ENV['SECRET_KEY']
 
 before do
   content_type :json
@@ -26,7 +32,8 @@ post '/api/v1/auth/signup' do
     user = User.new(payload)
 
     if user.save
-      { 'status': 'success', 'message': 'User registered successfully', 'data': user }.to_json
+      token = generate_token(user, secret_key)
+      { 'status': 'success', 'message': 'User registered successfully', 'token': token, 'data': user }.to_json
     else
       halt 400, { 'status': 'error', 'error': user.errors }.to_json
     end
