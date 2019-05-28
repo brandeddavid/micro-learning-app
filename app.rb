@@ -30,6 +30,7 @@ post '/api/v1/auth/signup' do
     halt 409, { 'status': 'error', 'message': 'User with the email already exists' }.to_json
   else
     user = User.new(payload)
+    user.password = payload['password']
 
     if user.save
       token = generate_token(user, secret_key)
