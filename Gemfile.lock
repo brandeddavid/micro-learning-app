@@ -14,9 +14,11 @@ GEM
       tzinfo (~> 1.1)
     arel (9.0.0)
     concurrent-ruby (1.1.5)
+    dotenv (2.7.2)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     json (2.2.0)
+    jwt (2.2.1)
     minitest (5.11.3)
     mustermann (1.0.3)
     pg (1.1.4)
@@ -44,7 +46,9 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  dotenv
   json
+  jwt
   pg
   rake
   shotgun
