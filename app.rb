@@ -40,3 +40,23 @@ post '/api/v1/auth/signup' do
     end
   end
 end
+
+post '/api/v1/auth/signin' do
+  payload = JSON.parse(request.body.read)
+  user = User.where(email: payload['email']).first
+
+  if !user
+    halt 404, {'status': 'error', 'message': 'User does not exists. Sign up first' }.to_json
+  end
+
+  puts user.password_hash
+  puts user.password
+
+  if user.password == payload['password']
+    token = generate_token(user, secret_key)
+    { 'status': 'success', 'message': 'Login successful', 'token': token, 'data': user }.to_json
+  else
+    halt 409, { 'status': 'error', 'message': 'Incorrect password' }
+  end
+  
+end
