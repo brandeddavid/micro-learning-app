@@ -16,6 +16,9 @@ group :development do
 end
 
 group :test do
+    gem 'sinatra'
+    gem 'activerecord'
+    gem 'sinatra-activerecord'
     gem 'rspec'
     gem 'rack-test'
     gem 'capybara'
