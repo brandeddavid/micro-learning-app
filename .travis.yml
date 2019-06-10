@@ -7,8 +7,10 @@ before_install:
   - gem install bundler
 
 script:
-  - RACK_ENV=test rake db:migrate --trace
   - bundle exec rspec
 
 after_script:
   - bundle exec rake coveralls:push
+
+before_script:
+  - psql -c 'CREATE DATABASE mla_test;' -U postgres
