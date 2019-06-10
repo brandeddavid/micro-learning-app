@@ -32,12 +32,12 @@ class UserController < MicroLearningApp
   post '/auth/signin' do
     user = User.where(email: params[:email]).first
     
-    if user
-      if user.password == params[:password]
-        token = generate_token(user, secret_key)
-        puts token
-        redirect '/signup'
-      end
+    if user && user.password == params[:password]
+      token = generate_token(user, secret_key)
+      session[:user] = user.email
+      redirect '/signup'
+    else
+      redirect '/'
     end
   end
 end

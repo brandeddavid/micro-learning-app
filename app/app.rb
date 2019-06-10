@@ -8,6 +8,10 @@ class MicroLearningApp < Sinatra::Base
 
   configure do
     set :public_dir, "public"
+    set :sessions, true
+    set :logging, true
+    set :dump_errors, false
+    set :some_custom_option, false
   end
 
 
