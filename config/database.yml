@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: mla
+  database: <% ENV['DB_NAME'] %>
   pool: 2
   username: <% ENV['DB_USERNAME'] %>
   password: 
@@ -9,7 +9,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: mla_test
+  database: <% ENV['TEST_DB_NAME'] %>
   pool: 2
   username: <% ENV['DB_USERNAME'] %>
   password: 
