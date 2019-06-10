@@ -31,5 +31,14 @@ describe 'Auth controller' do
 
     expect(current_path).to eq('/signup')
   end
+
+  it 'should not login a user with wrong credentials' do
+    visit '/signin'
+    fill_in 'email', with: 'david.mathenge98@gmail.com'
+    fill_in 'password', with: 'David@201'
+    click_on 'Sign In'
+
+    expect(current_path).to eq('/')
+  end
   
 end
