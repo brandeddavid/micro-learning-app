@@ -18,7 +18,7 @@ class UserController < MicroLearningApp
   post '/auth/signup' do
     @user = User.new
     @user.first_name = params[:firstName]
-    @user.last_name = params[:secondName]
+    @user.last_name = params[:lastName]
     @user.email = params[:email]
     @user.password = params[:password]
 
