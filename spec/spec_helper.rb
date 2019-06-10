@@ -1,4 +1,7 @@
 # spec/spec_helper.rb
+require 'coveralls'
+Coveralls.wear!
+
 require 'rack/test'
 require 'rspec'
 require 'capybara/rspec'
