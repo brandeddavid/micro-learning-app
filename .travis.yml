@@ -14,4 +14,3 @@ after_script:
 
 before_script:
   - psql -c 'CREATE DATABASE mla_test;' -U postgres
-  - RACK_ENV=test rake db:migrate --trace
