@@ -14,3 +14,4 @@ after_script:
 
 before_script:
   - psql -c 'CREATE DATABASE mla_test;' -U postgres
+  - bundle exec rake db:create db:schema:load
