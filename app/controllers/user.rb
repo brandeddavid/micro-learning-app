@@ -1,6 +1,12 @@
 require_relative '../models/user'
+require './helpers/auth'
+require 'dotenv'
+
+Dotenv.load
 
 class UserController < MicroLearningApp
+  secret_key = ENV['SECRET_KEY']
+
   get '/signup' do
     erb :signup
   end
@@ -20,6 +26,18 @@ class UserController < MicroLearningApp
 
     # existing_user = User.where(email: params['email']).first
     
-    redirect '/signup'
+    redirect '/signin'
+  end
+
+  post '/auth/signin' do
+    user = User.where(email: params[:email]).first
+    
+    if user
+      if user.password == params[:password]
+        token = generate_token(user, secret_key)
+        puts token
+        redirect '/signup'
+      end
+    end
   end
 end
