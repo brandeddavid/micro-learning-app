@@ -7,18 +7,23 @@ Micro-Learning app is a responsive web application that sends you one page per d
 
 # Set up
 Clone the project
+
 `git clone https://github.com/brandeddavid/micro-learning-app.git`
 
 Change directory
+
 `cd micro-learning-app`
 
 Install required gems
+
 `bundle install`
 
 Make a .env file and populate it with guidance from the [.env.example](https://github.com/brandeddavid/micro-learning-app/blob/develop/.env.example) file
 
 Run db migrations
+
 `rake db:migrate`
 
 Run the app
+
 `shotgun`
