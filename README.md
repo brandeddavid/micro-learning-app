@@ -27,3 +27,17 @@ Run db migrations
 Run the app
 
 `shotgun`
+
+# Running Tests
+Set up the test  db
+
+Run migrations on the test db (This is a one time operation)
+
+`RACK_ENV=test rake db:migrate`
+
+Run the test command
+
+`rspec`
+
+# Contributors
+[David Mwangi](https://github.com/brandeddavid)
