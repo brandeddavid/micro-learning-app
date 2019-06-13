@@ -7,10 +7,10 @@ class ArticleController < MicroLearningApp
 
   post '/articles' do
     topic = params[:search]    
-    article = get_article topic
+    @article = get_article topic
 
-    puts 'Hello', article
+    puts 'Hello', @article
 
-    redirect '/dashboard'
+    erb :dashboard
   end
 end
