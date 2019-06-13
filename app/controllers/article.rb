@@ -9,6 +9,8 @@ class ArticleController < MicroLearningApp
     topic = params[:search]    
     article = get_article topic
 
+    puts 'Hello', article
+
     redirect '/dashboard'
   end
 end
