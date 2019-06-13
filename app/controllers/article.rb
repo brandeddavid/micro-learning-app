@@ -2,6 +2,7 @@ require './helpers/article'
 
 class ArticleController < MicroLearningApp
   get '/dashboard' do
+    @article = {}
     erb :dashboard
   end
 
