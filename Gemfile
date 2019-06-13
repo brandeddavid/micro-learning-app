@@ -2,14 +2,15 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'activerecord'
+gem 'bundler'
 gem 'sinatra-activerecord'
 gem 'rake'
 gem 'pg'
 gem 'json'
 gem 'jwt'
 gem 'dotenv'
+gem 'httparty'
 gem 'bcrypt'
-gem 'news-api'
 gem 'sinatra-contrib', require: 'sinatra/reloader'
 
 group :development do

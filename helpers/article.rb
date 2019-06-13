@@ -1,15 +1,5 @@
-require 'news-api'
+require 'httparty'
 
 def get_article(topic)
-  newsapi = News.new("0f034aa650684b48acd5402998d8c15a") 
-
-  all_articles = newsapi.get_everything(q: 'bitcoin',
-    language: 'en',
-    pageSize: 100,
-    sortBy: 'relevancy'
-  )
-
-  return all_articles
+  articles = HTTParty.get('https://newsapi.org/v2/everything?q=bitcoin&sortBy=publishedAt&apiKey=0f034aa650684b48acd5402998d8c15a')
 end
-
-puts get_article('bitcoin')
