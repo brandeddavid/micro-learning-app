@@ -35,7 +35,7 @@ class UserController < MicroLearningApp
     if user && user.password == params[:password]
       token = generate_token(user, secret_key)
       session[:user] = user.email
-      redirect '/signup'
+      redirect '/dashboard'
     else
       redirect '/'
     end
