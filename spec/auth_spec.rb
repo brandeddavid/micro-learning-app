@@ -29,7 +29,7 @@ describe 'Auth controller' do
     fill_in 'password', with: 'David@2019'
     click_on 'Sign In'
 
-    expect(current_path).to eq('/signup')
+    expect(current_path).to eq('/dashboard')
   end
 
   it 'should not login a user with wrong credentials' do
