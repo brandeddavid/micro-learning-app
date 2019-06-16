@@ -9,9 +9,7 @@ class ArticleController < MicroLearningApp
   post '/articles' do
     topic = params[:search]    
     @article = get_article topic
-
-    puts 'Hello', @article
-
+    
     erb :dashboard
   end
 end

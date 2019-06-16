@@ -6,3 +6,7 @@ body {
   margin-top: 20%;
   text-align: center;
 }
+
+.article-card {
+  margin-top: 500px !important;
+}
