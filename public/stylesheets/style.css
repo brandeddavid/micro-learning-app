@@ -8,5 +8,9 @@ body {
 }
 
 .article-card {
-  margin-top: 500px !important;
+  margin-top: 50px !important;
+}
+
+.auth-form {
+  margin-top: 200px !important;
 }
